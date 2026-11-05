@@ -1,6 +1,6 @@
 # Ask Chris
 
-**A chat for recruiters to ask how I work, and a working demo of the kind of
+**A chat for recruiters and hiring managers to ask how I work, and a working demo of the kind of
 AI product I build.**
 
 ## Why this exists
