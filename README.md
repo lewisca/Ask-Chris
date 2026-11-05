@@ -54,6 +54,10 @@ Then open http://localhost:6006 and click the **doc-qa** project.
 
 ### Chat in the browser
 
+On Windows, put your keys in a `.env` file (one `NAME=value` per line:
+`ANTHROPIC_API_KEY`, `ARIZE_SPACE_ID`, `ARIZE_API_KEY`) and double-click
+`start.bat`. Anywhere else:
+
 ```bash
 streamlit run chat.py
 ```

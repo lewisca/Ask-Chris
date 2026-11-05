@@ -1,4 +1,5 @@
 """Browser chat UI for doc-qa. Run: streamlit run chat.py"""
+import os
 import uuid
 
 import streamlit as st
@@ -7,6 +8,9 @@ from openinference.instrumentation import using_session
 from app import DEMO_QUESTIONS, MODEL, DocQA  # importing app also sets up tracing
 
 st.set_page_config(page_title="Ask Chris", page_icon="💬")
+if not os.getenv("ANTHROPIC_API_KEY"):
+    st.error("ANTHROPIC_API_KEY is not set. Set it in the terminal, then restart `streamlit run chat.py`.")
+    st.stop()
 
 
 @st.cache_resource
