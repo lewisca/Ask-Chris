@@ -84,7 +84,10 @@ python app.py                              # interactive chat
 
 Then open http://localhost:6006 and click the **doc-qa** project.
 
-### Chat in the browser
+### Chat in the browser (in progress)
+
+> **In progress:** there is no public link to the chat yet. For now it only
+> runs on your own machine with your own API keys, as described below.
 
 On Windows, put your keys in a `.env` file (one `NAME=value` per line:
 `ANTHROPIC_API_KEY`, `ARIZE_SPACE_ID`, `ARIZE_API_KEY`) and double-click
@@ -105,6 +108,12 @@ ask  (CHAIN)              question in, answer out, flags in Metadata
 ├── build_prompt  (CHAIN)     the exact excerpts sent to Claude
 └── messages.create  (LLM)    the Claude call: full prompt, response, tokens, cost, latency
 ```
+
+Here is a real run in Arize. Each question produces those four spans, and the
+off-topic question ("What is the capital of France?") gets an answer that
+declines instead of guessing:
+
+![Spans from a demo run in Arize](arize-spans.png)
 
 The `ask` span carries metadata you can filter on in Phoenix:
 
