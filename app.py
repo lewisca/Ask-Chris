@@ -250,10 +250,10 @@ class DocQA:
 
 # ---------------------------------------------------------------- CLI
 DEMO_QUESTIONS = [
-    "What does a green checkmark on a trace actually prove?",
-    "What should I check first when I open a project full of RAG traces?",
-    "Which archetype is a question like 'signups dropped 20% last week, what happened?' and how do I open my answer?",
-    "What are the four eval types and how do I pick one?",
+    "How does Chris take an AI product from idea to launch?",
+    "What is Chris's approach to coaching a team?",
+    "How does Chris decide what goes on a roadmap?",
+    "How does Chris debug an AI feature that gives bad answers?",
     "What is the capital of France?",  # not in the docs: should decline, and the trace should show weak retrieval
 ]
 

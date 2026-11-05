@@ -1,7 +1,39 @@
-# doc-qa
+# Ask Chris
 
-Ask questions about your own documents with Claude. Every question emits a
-trace you can inspect in Arize Phoenix, a local trace viewer.
+**A chat for recruiters to ask how I work, and a working demo of the kind of
+AI product I build.**
+
+## Why this exists
+
+Instead of a resume bullet that says "builds AI products," Ask Chris lets you
+ask directly. The answers come only from my own documents in [`docs/`](docs/):
+my operating models, coaching frameworks, product roadmap playbook and trace
+triage playbook. Each answer cites the excerpts it used, and when the documents
+don't cover a question, it says so instead of guessing.
+
+Questions you might ask:
+
+- How does Chris take an AI product from idea to launch?
+- What is Chris's approach to coaching a team?
+- How does Chris decide what goes on a roadmap?
+- How does Chris debug an AI feature that gives bad answers?
+
+## The demo is the pitch
+
+The way it's built is the other half of the answer:
+
+- **Retrieval-augmented generation (RAG).** Documents are split at their
+  headings, searched with BM25, and the best excerpts are sent to Claude with
+  instructions to answer only from them and cite them.
+- **A real chat interface.** A Streamlit chat page ([`chat.py`](chat.py)) on
+  top of the same pipeline as the command-line tool ([`app.py`](app.py)).
+- **Observability from day one.** Every question produces a trace in Arize
+  showing what was retrieved, the exact prompt, Claude's response, tokens,
+  cost and latency.
+- **Built-in quality flags.** Each trace is tagged when retrieval was weak or
+  the answer cited nothing, so ungrounded answers are easy to find and fix.
+
+The rest of this README covers how to run it yourself.
 
 ## Setup (once)
 
