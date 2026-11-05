@@ -130,6 +130,21 @@ Its trace should show `weak_retrieval: true` and an answer that declines.
 Each run of `app.py` is grouped as one **session** in Phoenix, so an
 interactive chat appears as a single conversation.
 
+## Coaching toolkit
+
+The documents in `docs/coaching/` (the ACT Model, the ACT Group-Team Coaching
+Model, Coaching Aims, Group Coaching Aims and the Coaching Question Cards) are not searched. They are sent whole
+with every question, so Claude can:
+
+- answer coaching and leadership questions with the ACT step that fits and
+  1-3 matching question cards, using the team model and team cards for team
+  situations;
+- answer a vague question with one clarifying question in Chris's coaching
+  style instead of guessing.
+
+The chat remembers the last few turns, so a reply to a clarifying question
+keeps its context. Traces flag toolkit citations under `cited_toolkit`.
+
 ## Adding documents
 
 Drop `.docx`, `.md` or `.txt` files into `docs/` and run again. The index is

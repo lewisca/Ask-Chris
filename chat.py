@@ -40,6 +40,6 @@ if question := st.chat_input("Ask about your documents") or clicked:
     st.chat_message("user").markdown(question)
     with st.chat_message("assistant"), st.spinner("Searching the docs..."):
         with using_session(st.session_state.session):
-            answer = qa.ask(question)
+            answer = qa.ask(question, st.session_state.messages[:-1])
         st.markdown(answer)
     st.session_state.messages.append({"role": "assistant", "content": answer})
