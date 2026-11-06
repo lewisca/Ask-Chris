@@ -154,8 +154,12 @@ def _doc_files(folder: Path) -> list[Path]:
     return sorted(p for p in folder.iterdir() if p.suffix.lower() in {".docx", ".md", ".txt"})
 
 
-def _sections(path: Path):
-    return (_sections_from_docx if path.suffix.lower() == ".docx" else _sections_from_text)(path)
+def _sections(path: Path) -> list:
+    try:
+        return list((_sections_from_docx if path.suffix.lower() == ".docx" else _sections_from_text)(path))
+    except OSError as e:  # e.g. open in Word or mid-sync in OneDrive: skip it rather than fail
+        print(f"Skipping {path.name}: {e.strerror or e}", file=sys.stderr)
+        return []
 
 
 def load_toolkit(folder: Path) -> dict[str, str]:
